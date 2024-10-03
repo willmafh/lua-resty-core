@@ -4,7 +4,7 @@ use t::TestCore;
 
 repeat_each(2);
 
-plan tests => repeat_each() * (blocks() * 3 + 19) + 2;
+plan tests => repeat_each() * (blocks() * 3 + 20) + 2;
 
 add_block_preprocessor(sub {
     my $block = shift;
@@ -1025,6 +1025,7 @@ MD5\([^)]+\)= 8bc944dbd052ef51652e70a5104492e3
     }
 --- response_body
 closed
+--- timeout: 10s
 
 
 

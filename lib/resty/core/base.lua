@@ -19,22 +19,22 @@ local FREE_LIST_REF = 0
 if subsystem == 'http' then
     if not ngx.config
        or not ngx.config.ngx_lua_version
-       or ngx.config.ngx_lua_version ~= 10024
+       or ngx.config.ngx_lua_version ~= 10027
     then
-        error("ngx_http_lua_module 0.10.24 required")
+        error("ngx_http_lua_module 0.10.27 required")
     end
 
 elseif subsystem == 'stream' then
     if not ngx.config
        or not ngx.config.ngx_lua_version
-       or ngx.config.ngx_lua_version ~= 13
+       or ngx.config.ngx_lua_version ~= 15
     then
-        error("ngx_stream_lua_module 0.0.13 required")
+        error("ngx_stream_lua_module 0.0.15 required")
     end
 
 else
-    error("ngx_http_lua_module 0.10.24 or "
-          .. "ngx_stream_lua_module 0.0.13 required")
+    error("ngx_http_lua_module 0.10.27 or "
+          .. "ngx_stream_lua_module 0.0.15 required")
 end
 
 
@@ -141,7 +141,7 @@ local c_buf_type = ffi.typeof("char[?]")
 local _M = new_tab(0, 18)
 
 
-_M.version = "0.1.26"
+_M.version = "0.1.29"
 _M.new_tab = new_tab
 _M.clear_tab = clear_tab
 
@@ -241,6 +241,7 @@ _M.FFI_AGAIN = -2
 _M.FFI_BUSY = -3
 _M.FFI_DONE = -4
 _M.FFI_DECLINED = -5
+_M.FFI_ABORT = -6
 
 
 do
